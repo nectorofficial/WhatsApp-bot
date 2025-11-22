@@ -1,5 +1,20 @@
 const { Client } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
+const express = require('express');
+
+// Add express to handle port binding
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Basic route to keep the app alive
+app.get('/', (req, res) => {
+    res.send('🤖 WhatsApp Bot is running...');
+});
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+});
 
 // Your session data from Pastebin
 const sessionData = {
